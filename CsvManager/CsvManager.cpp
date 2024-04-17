@@ -138,7 +138,7 @@ public:
 			auto guidMatch = data.substr(0, lastIdentifierIndex);
 			if (guidMatch == guid)
 			{
-				temp << person.guid << "," << person.name << "," << person.lastName << "," << person.age << endl;
+				temp << guid << "," << person.name << "," << person.lastName << "," << person.age << endl;
 			}
 			else
 			{
@@ -262,6 +262,12 @@ public:
 	{
 		return remove(DATA_PATH) == 0;
 	}
+
+	void refresh_database()
+	{
+		remove(DATA_PATH);
+		init_file();
+	}
 };
 
 class ConsoleUi {
@@ -271,14 +277,15 @@ public:
 		cout << "Menu" << endl;
 		cout << "Select an option" << endl;
 		cout << "----------------" << endl;
-		cout << "1. Insert" << endl;
-		cout << "2. Update" << endl;
-		cout << "3. Delete" << endl;
-		cout << "4. Search" << endl;
-		cout << "5. Select" << endl;
-		cout << "6. Select where" << endl;
-		cout << "7. Drop database" << endl;
-		cout << "8. Exit" << endl;
+		cout << "1. Nuevo" << endl;
+		cout << "2. Actualizar" << endl;
+		cout << "3. Borrar" << endl;
+		cout << "4. Buscar por GUID" << endl;
+		cout << "5. Mostrar Todos" << endl;
+		cout << "6. Buscar Donde" << endl;
+		cout << "7. Borrar Base de Datos" << endl;
+		cout << "8. Volver a crear base de datos" << endl;
+		cout << "9. Salir" << endl;
 	}
 
 	void display_person(Person person) {
@@ -398,6 +405,11 @@ int main()
 			break;
 		}
 		case 8:
+		{
+			manager->refresh_database();
+			break;
+		}
+		case 9:
 		{
 			cout << "Adios!" << endl;
 			return 0;
