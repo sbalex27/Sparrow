@@ -275,7 +275,7 @@ class ConsoleUi {
 public:
 	void displayMenu() {
 		cout << "Menu" << endl;
-		cout << "Select an option" << endl;
+		cout << "Seleccione una opcion" << endl;
 		cout << "----------------" << endl;
 		cout << "1. Nuevo" << endl;
 		cout << "2. Actualizar" << endl;
