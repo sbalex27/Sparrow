@@ -1,9 +1,3 @@
-
-//Deben colocarle una ruta de almacenamiento al archivo.
-//Deben de Modificar una linea del archivo.
-//Deben de Borrar un archivo completo.
-//Deben de crear desde cero el archivo, eso quiere decir que colocan toda la información en el entorno de desarrollo("Dejo a su criterio lo que desee guardar") y al momento de darle guardar a la información allí es donde crean el archivo y lo almacenan en la ruta que ustedes seleccionaron para su carpeta.
-//Por su puesto que al momento de cargar un archivos ustedes dicen si es en modo lectura o escritura.
 #include <iomanip>
 #include <iostream>
 #include <string>
