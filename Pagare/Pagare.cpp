@@ -5,7 +5,7 @@
 #include <conio.h>
 #include <vector>
 
-constexpr auto DATA_PATH = "C:\\Users\\alex2\\data.csv";
+constexpr auto DATA_PATH = "C:\\Users\\alex2\\pagares.csv";
 
 using namespace std;
 
@@ -96,7 +96,7 @@ static vector<Invoice> get_invoices()
 static void print_table(vector<Invoice> invoices)
 {
 	// Imprime el encabecado de la tabla
-	cout << std::left << std::setw(45) << "GUID";
+	//cout << std::left << std::setw(45) << "GUID";
 	cout << std::left << std::setw(20) << "NAME";
 	cout << std::left << std::setw(30) << "EMAIL";
 	cout << std::left << std::setw(30) << "DESCRIPTION";
@@ -104,12 +104,12 @@ static void print_table(vector<Invoice> invoices)
 	cout << std::left << "PHONE" << std::endl;
 
 	// Imprime una línea separadora
-	cout << std::left << std::setw(45) << std::setfill('-') << "";
+	std::cout << std::setw(120) << std::setfill('-') << "" << std::setfill(' ') << std::endl;
 
 	// Imprime las filas de la tabla
 	for (auto invoice : invoices)
 	{
-		cout << std::left << std::setw(45) << invoice.guid;
+		//cout << std::left << std::setw(45) << invoice.guid;
 		cout << std::left << std::setw(20) << invoice.name;
 		cout << std::left << std::setw(30) << invoice.email;
 		cout << std::left << std::setw(30) << invoice.description;
@@ -139,16 +139,22 @@ int main()
 		Invoice invoice;
 		string name, email, description, amount, phone;
 		invoice.guid = create_guid();
+
 		cout << "Name:" << endl;
-		getline(cin, name);
+		cin >> name;
+		invoice.name = name;
 		cout << "Email:" << endl;
-		getline(cin, email);
+		cin >> email;
+		invoice.email = email;
 		cout << "Description:" << endl;
-		getline(cin, description);
+		cin >> description;
+		invoice.description = description;
 		cout << "Amount:" << endl;
-		getline(cin, amount);
+		cin >> amount;
+		invoice.amount = amount;
 		cout << "Phone:" << endl;
-		getline(cin, phone);
+		cin >> phone;
+		invoice.phone = phone;
 
 		add_invoice(invoice);
 		break;
